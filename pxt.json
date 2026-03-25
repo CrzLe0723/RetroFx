@@ -17,7 +17,6 @@
         "README.md",
         "assets.json",
         "RetroFx.ts",
-        "docs",
         "docs/create-menu.md"
     ],
     "testFiles": [
