@@ -1,5 +1,6 @@
 {
     "name": "Retro Fx+ Extension",
+    "version": "1.0.0",
     "description": "Retro-style UI extension for MakeCode Arcade featuring menus, dialog systems, and customizable sound effects.",
     "dependencies": {
         "device": "*",
