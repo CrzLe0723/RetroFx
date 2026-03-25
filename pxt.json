@@ -1,6 +1,6 @@
 {
     "name": "Retro Fx+ Extension",
-    "description": "",
+    "description": "Retro-style UI extension for MakeCode Arcade featuring menus, dialog systems, and customizable sound effects.",
     "dependencies": {
         "device": "*",
         "arcade-text": "github:microsoft/arcade-text#v1.3.0",
