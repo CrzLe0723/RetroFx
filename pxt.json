@@ -16,7 +16,9 @@
         "main.ts",
         "README.md",
         "assets.json",
-        "RetroFx.ts"
+        "RetroFx.ts",
+        "docs",
+        "docs/create-menu.md"
     ],
     "testFiles": [
         "test.ts"
