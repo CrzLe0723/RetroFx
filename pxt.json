@@ -1,0 +1,32 @@
+{
+    "name": "Retro Fx+ Extension",
+    "description": "",
+    "dependencies": {
+        "device": "*",
+        "arcade-text": "github:microsoft/arcade-text#v1.3.0",
+        "Timers": "github:microsoft/arcade-timers#v1.1.0",
+        "Extra Effects": "github:alexszeto/extra-effects#v3.1.0",
+        "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.1.0",
+        "sound effects": "github:klausw3/pxt-sound-effects#v1.2.0",
+        "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
+        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.1"
+    },
+    "files": [
+        "main.ts",
+        "README.md",
+        "assets.json",
+        "RetroFx.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "4.0.12",
+        "targetId": "arcade"
+    },
+    "supportedTargets": [
+        "arcade"
+    ],
+    "preferredEditor": "tsprj",
+    "languageRestriction": "javascript-only"
+}
