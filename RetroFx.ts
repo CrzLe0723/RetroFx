@@ -84,7 +84,7 @@ namespace Retro {
             //% group=Menu
             //% subcategory="UI"
             //% blockSetVariable=retroMenu
-            //% callBacks.shadow=lists_create_with
+            //% callbacks.shadow=lists_create_with
             //% x.defl=80 y.defl=60
             //% dimensionX.defl=80 dimensionY.defl=60
             static createMenu(options: string[], callbacks: (() => void)[], x: number, y: number, dimensionX: number, dimensionY: number) {
