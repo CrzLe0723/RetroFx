@@ -18,7 +18,7 @@
         "assets.json",
         "RetroFx.ts",
         "docs/create-menu.md",
-        "docs/set-menu-arrows"
+        "docs/set-menu-arrows.md"
     ],
     "testFiles": [
         "test.ts"
