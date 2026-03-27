@@ -10,7 +10,8 @@
         "arcade-mini-menu": "github:riknoll/arcade-mini-menu#v0.1.0",
         "sound effects": "github:klausw3/pxt-sound-effects#v1.2.0",
         "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
-        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.1"
+        "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.1",
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#v0.1.2"
     },
     "files": [
         "main.ts",
