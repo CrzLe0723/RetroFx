@@ -82,7 +82,7 @@ namespace Retro {
             //% block
             //% blockId=retro_menu
             //% weight=86
-            //% group=Dialog
+            //% group=Menu
             //% subcategory="UI"
             //% blockSetVariable=retroMenu
             //% callbacks.shadow=lists_create_with
@@ -91,7 +91,7 @@ namespace Retro {
             static createMenu(options: string[], callbacks: (() => void)[], x: number, y: number, dimensionX: number, dimensionY: number) {
                 return new Menu(options, callbacks, x, y, dimensionX, dimensionY)
             }
-
+            
             static isAnyMenuOpen(): boolean {
                 return Menu.openMenus.length > 0
             }
@@ -701,6 +701,7 @@ namespace Retro {
      * Follow sprite with camera lag
      */
     //% block="camera follow $sprite lag $lag"
+    //% blockId=retro_camera_follow_lag
     //% subcategory="Effects"
     //% weight=84
     //% lag.defl=4
@@ -1274,6 +1275,7 @@ namespace Retro {
      * Enable dash ability for a sprite
      */
     //% block="enable dash for $sprite speed $speed"
+    //% blockId=retro_enable_dash
     //% subcategory="Movement"
     //% weight=82
     //% speed.defl=80
@@ -1299,6 +1301,7 @@ namespace Retro {
     * Dash with cooldown
     */
     //% block="dash $sprite speed $speed cooldown $cooldown ms"
+    //% blockId=retro_dash_cooldown
     //% subcategory="Movement"
     //% weight=81
     //% speed.defl=100
@@ -1314,6 +1317,7 @@ namespace Retro {
      * Teleport sprite to position
      */
     //% block="teleport $sprite to x $x y $y"
+    //% blockId=retro_teleport_sprite
     //% subcategory="Movement"
     //% weight=80
     //% sprite.shadow=variables_get
@@ -1328,6 +1332,7 @@ namespace Retro {
      * Freeze game briefly
      */
     //% block="freeze frame $time ms"
+    //% blockId=retro_freeze_frame
     //% subcategory="Effects"
     //% weight=88
     //% time.defl=60
@@ -1337,30 +1342,14 @@ namespace Retro {
         pause(time)
 
     }
-    /**
-    * Spawn retro particles
-    */
-    //% block="spawn particles at x $x y $y count $count"
-    //% subcategory="Effects"
-    //% weight=87
-    //% count.defl=10
-    export function spawnParticles(x: number, y: number, count: number) {
-
-        for (let i = 0; i < count; i++) {
-
-            let p = sprites.createProjectileFromSide(img`.`, randint(-40, 40), randint(-40, 40))
-            p.setPosition(x, y)
-            p.lifespan = 300
-
-        }
-
-    }
+    
     export let combo = 0
 
     /**
      * Increase combo
      */
     //% block="increase combo"
+    //% blockId=retro_increase_combo
     //% subcategory="Combos"
     //% weight=78
     export function increaseCombo() {
@@ -1370,6 +1359,7 @@ namespace Retro {
 
     }
     //% block="reset combo"
+    //% blockId=retro_reset_combo
     //% subcategory="Combos"
     //% weight=77
     export function resetCombo() {
@@ -1379,6 +1369,8 @@ namespace Retro {
      * Show floating text
      */
     //% block="floating text $text at $sprite"
+    //% blockId=retro_floating_text
+    //% group=Dialog
     //% subcategory="UI"
     //% weight=86
     export function floatingText(text: string, sprite: Sprite) {
@@ -1391,6 +1383,8 @@ namespace Retro {
     * Typewriter text effect
     */
     //% block="typewriter text $text pause per letter $pausePerCharacter at x $x y $y|| destroy after $destroyAfter"
+    //% blockId=retro_type_writer
+    //% group=Dialog
     //% subcategory="UI"
     //% expandableArgumentMode="toggle"
     //% pausePerCharacter.shadow=timePicker
@@ -1512,6 +1506,7 @@ namespace Retro {
      * Retro hit impact
      */
     //% block="retro hit impact strength $shake freeze $freeze"
+    //% blockId=retro_hit_impact
     //% subcategory="Effects"
     //% weight=95
     export function retroHitImpact(shake: number, freeze: number) {
