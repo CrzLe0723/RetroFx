@@ -73,15 +73,16 @@ namespace Retro {
             /**
              * Create a Retro Menu 
              * @param options the text options in your Retro Menu 
-             * @param callBacks any callback function needed in the Retro Menu
+             * @param callbacks any callback function needed in the Retro Menu
              * @param x x position 
              * @param y y position
              * @param dimensionX the width of the Retro Menu 
              * @param dimensionY the height of the Retro Menu
              */
+            //% block
             //% blockId=retro_menu
             //% weight=86
-            //% group=Menu
+            //% group=Dialog
             //% subcategory="UI"
             //% blockSetVariable=retroMenu
             //% callbacks.shadow=lists_create_with
