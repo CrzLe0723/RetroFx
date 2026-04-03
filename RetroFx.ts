@@ -556,7 +556,8 @@ namespace Retro {
      */
     //% block="play envelope sound start pitch $startPitch end pitch $endPitch||attack $attack decay $decay sustain $sustain release $release"
     //% blockId=retro_envelope_sound
-    //% subcategory="Sound"
+    //% group="Sound"
+    //% subcategory="Audio Fx"
     //% weight=93
     //% startPitch.defl=600
     //% endPitch.defl=400
@@ -598,7 +599,7 @@ namespace Retro {
     */
     //% block="play pitch sweep start $startPitch end $endPitch duration $duration ms"
     //% blockId=retro_pitch_sweep
-    //% subcategory="Retro FX"
+    //% subcategory="Audio Fx"
     //% weight=92
     //% startPitch.defl=1200
     //% endPitch.defl=200
@@ -619,7 +620,8 @@ namespace Retro {
      */
     //% block="play sounds together $a and $b"
     //% blockId=retro_parallel_sounds
-    //% subcategory="Sound"
+    //% group=Sound
+    //% subcategory="Audio Fx"
     //% weight=91
     export function playSoundsTogether(a: Sounds, b: Sounds) {
 
@@ -637,7 +639,8 @@ namespace Retro {
     */
     //% block="play random sound from bank $sounds"
     //% blockId=retro_sound_bank
-    //% subcategory="Variation"
+    //% group=Variation
+    //% subcategory="System Fx"
     //% weight=89
     //% sounds.shadow="lists_create_with"
     export function playSoundBank(sounds: Sounds[]) {
@@ -654,7 +657,8 @@ namespace Retro {
      */
     //% block="play sound bank $sounds pitch variation $variation"
     //% blockId=retro_sound_bank_var
-    //% subcategory="Variation"
+    //% group=Variation
+    //% subcategory="System Fx"
     //% weight=88
     //% sounds.shadow="lists_create_with"
     //% variation.defl=20
@@ -683,7 +687,8 @@ namespace Retro {
      */
     //% block="play variation pitch $pitch duration $duration volume $volume"
     //% blockId=retro_variation_sound
-    //% subcategory="Variation"
+    //% group=Variation
+    //% subcategory="System Fx"
     //% weight=80
     //% pitch.defl=600
     //% duration.defl=100
@@ -708,7 +713,8 @@ namespace Retro {
      */
     //% block="with $chance % chance do"
     //% blockId=retro_probability_event
-    //% subcategory="Variation"
+    //% group=Variation
+    //% subcategory="System Fx"
     //% weight=98
     //% chance.min=0 chance.max=100
     //% chance.defl=50
@@ -725,7 +731,8 @@ namespace Retro {
      */
     //% block="velocity variation from $velocity min $min max $max"
     //% blockId=retro_velocity_variation
-    //% subcategory="Variation"
+    //% subcategory="System Fx"
+    //% group=Variation
     //% weight=97
     //% velocity.defl=50
     //% min.defl=0
@@ -746,7 +753,8 @@ namespace Retro {
      */
     //% block="variation from table $values"
     //% blockId=retro_variation_table
-    //% subcategory="Variation"
+    //% group=Variation
+    //% subcategory="System Fx"
     //% weight=96
     //% values.shadow="lists_create_with"
     export function variationTable(values: number[]): number {
@@ -765,7 +773,8 @@ namespace Retro {
      */
     //% block="play dash sound speed $speed"
     //% blockId=retro_dash_sound
-    //% subcategory="Dynamic"
+    //% group=Dynamic
+    //% subcategory="System Fx"
     //% weight=70
     //% speed.defl=100
     export function playDash(speed: number) {
@@ -781,7 +790,8 @@ namespace Retro {
      */
     //% block="play jump sound force $force"
     //% blockId=retro_jump_sound
-    //% subcategory="Dynamic"
+    //% group=Dynamic
+    //% subcategory="System Fx"
     //% weight=69
     //% force.defl=50
     export function playJump(force: number) {
@@ -797,7 +807,8 @@ namespace Retro {
      */
     //% block="play enemy hit combo $combo"
     //% blockId=retro_enemy_hit
-    //% subcategory="Dynamic"
+    //% group=Dynamic
+    //% subcategory="System Fx"
     //% weight=68
     //% combo.defl=1
     export function playEnemyHit(combo: number) {
@@ -813,7 +824,8 @@ namespace Retro {
      */
     //% block="play charge sound charge $charge max $maxCharge"
     //% blockId=retro_charge_sound
-    //% subcategory="Dynamic"
+    //% group=Dynamic
+    //% subcategory="System Fx"
     //% weight=67
     //% charge.defl=0
     //% maxCharge.defl=100
