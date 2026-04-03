@@ -963,163 +963,7 @@ namespace Retro {
 
     }
 
-    export function createEffectPreset(effect: Effects): SpreadEffectData {
-
-        switch (effect) {
-
-            // ================= UI =================
-            case Effects.MenuSelect:
-                return extraEffects.createCustomSpreadEffectData(
-                    [1, 2, 3],
-                    true,
-                    [1, 2],
-                    new extraEffects.NumberRange(10, 20),
-                    new extraEffects.NumberRange(10, 20),
-                    new extraEffects.NumberRange(100, 200),
-                    0, -10,
-                    new extraEffects.NumberRange(50, 100),
-                    0, 0, null
-                )
-
-            case Effects.MenuMove:
-                return extraEffects.createCustomSpreadEffectData(
-                    [2, 3],
-                    true,
-                    [1, 1],
-                    new extraEffects.NumberRange(5, 10),
-                    new extraEffects.NumberRange(5, 15),
-                    new extraEffects.NumberRange(80, 120),
-                    0, 0,
-                    new extraEffects.NumberRange(20, 60),
-                    0, 0, null
-                )
-
-            case Effects.MenuOpen:
-                return extraEffects.createCustomSpreadEffectData(
-                    [3, 4, 5],
-                    true,
-                    [1, 2, 3],
-                    new extraEffects.NumberRange(20, 30),
-                    new extraEffects.NumberRange(20, 40),
-                    new extraEffects.NumberRange(150, 250),
-                    0, -5,
-                    new extraEffects.NumberRange(80, 120),
-                    0, 0, null
-                )
-
-            case Effects.MenuClose:
-                return extraEffects.createCustomSpreadEffectData(
-                    [5, 4, 3],
-                    true,
-                    [2, 2, 1],
-                    new extraEffects.NumberRange(20, 30),
-                    new extraEffects.NumberRange(20, 40),
-                    new extraEffects.NumberRange(150, 250),
-                    0, 5,
-                    new extraEffects.NumberRange(80, 120),
-                    0, 0, null
-                )
-
-            // ================= COMBAT =================
-            case Effects.HitSpark:
-                return extraEffects.createCustomSpreadEffectData(
-                    [7, 6, 5],
-                    true,
-                    [1, 2],
-                    new extraEffects.NumberRange(20, 40),
-                    new extraEffects.NumberRange(30, 60),
-                    new extraEffects.NumberRange(80, 150),
-                    0, 0,
-                    new extraEffects.NumberRange(80, 140),
-                    0, 0, null
-                )
-
-            case Effects.HeavyHit:
-                return extraEffects.createCustomSpreadEffectData(
-                    [7, 6, 2],
-                    false,
-                    [2, 3, 4],
-                    new extraEffects.NumberRange(40, 70),
-                    new extraEffects.NumberRange(60, 100),
-                    new extraEffects.NumberRange(150, 250),
-                    0, -10,
-                    new extraEffects.NumberRange(120, 180),
-                    0, 0, null
-                )
-
-            case Effects.Explosion:
-                return extraEffects.createCustomSpreadEffectData(
-                    [2, 4, 7, 5],
-                    false,
-                    [2, 4, 6],
-                    new extraEffects.NumberRange(60, 100),
-                    new extraEffects.NumberRange(80, 150),
-                    new extraEffects.NumberRange(200, 400),
-                    0, 0,
-                    new extraEffects.NumberRange(150, 220),
-                    20, 0, 100
-                )
-
-            // ================= MOVEMENT =================
-            case Effects.JumpBurst:
-                return extraEffects.createCustomSpreadEffectData(
-                    [3, 2, 1],
-                    true,
-                    [1, 1, 2],
-                    new extraEffects.NumberRange(10, 25),
-                    new extraEffects.NumberRange(30, 60),
-                    new extraEffects.NumberRange(120, 180),
-                    0, -20,
-                    new extraEffects.NumberRange(60, 120),
-                    -5, 0, null
-                )
-
-            case Effects.LandImpact:
-                return extraEffects.createCustomSpreadEffectData(
-                    [5, 4, 3],
-                    false,
-                    [2, 3],
-                    new extraEffects.NumberRange(30, 50),
-                    new extraEffects.NumberRange(40, 80),
-                    new extraEffects.NumberRange(120, 200),
-                    0, 10,
-                    new extraEffects.NumberRange(80, 140),
-                    10, 0, null
-                )
-
-            // ================= GLITCH =================
-            case Effects.GlitchBurst:
-                return extraEffects.createCustomSpreadEffectData(
-                    [1, 3, 2, 7],
-                    false,
-                    [1, 3],
-                    new extraEffects.NumberRange(40, 80),
-                    new extraEffects.NumberRange(60, 120),
-                    new extraEffects.NumberRange(100, 200),
-                    10, -10,
-                    new extraEffects.NumberRange(150, 250),
-                    0, 10, 60
-                )
-        }
-
-        // SAFE fallback (prevents crashes in MakeCode)
-        return extraEffects.createCustomSpreadEffectData(
-            [0],
-            true,
-            [1],
-            new extraEffects.NumberRange(10, 10),
-            new extraEffects.NumberRange(10, 10),
-            new extraEffects.NumberRange(50, 50),
-            0, 0,
-            new extraEffects.NumberRange(100, 100),
-            0, 0, 50
-        )
-    }
-    //% block="play effect $effect at x $x y $y"
-    export function playEffect(effect: Effects, x: number, y: number) {
-        let data = createEffectPreset(effect)
-        extraEffects.createSpreadEffectAt(data, x, y)
-    }
+    
     
     /**
     * Loop a sound several times
@@ -1237,6 +1081,484 @@ namespace Retro {
 
         }
 
+    }
+    function createEffectPreset(effect: Effects): SpreadEffectData {
+
+        switch (effect) {
+
+            // ================= UI =================
+            case Effects.MenuSelect:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 2, 3],
+                    true,
+                    [1, 2],
+                    new extraEffects.NumberRange(10, 20),
+                    new extraEffects.NumberRange(10, 20),
+                    new extraEffects.NumberRange(100, 200),
+                    0, -10,
+                    new extraEffects.NumberRange(50, 100),
+                    0, 0, null
+                )
+
+            case Effects.MenuMove:
+                return extraEffects.createCustomSpreadEffectData(
+                    [2, 3],
+                    true,
+                    [1, 1],
+                    new extraEffects.NumberRange(5, 10),
+                    new extraEffects.NumberRange(5, 15),
+                    new extraEffects.NumberRange(80, 120),
+                    0, 0,
+                    new extraEffects.NumberRange(20, 60),
+                    0, 0, null
+                )
+
+            case Effects.MenuOpen:
+                return extraEffects.createCustomSpreadEffectData(
+                    [3, 4, 5],
+                    true,
+                    [1, 2, 3],
+                    new extraEffects.NumberRange(20, 30),
+                    new extraEffects.NumberRange(20, 40),
+                    new extraEffects.NumberRange(150, 250),
+                    0, -5,
+                    new extraEffects.NumberRange(80, 120),
+                    0, 0, null
+                )
+
+            case Effects.MenuClose:
+                return extraEffects.createCustomSpreadEffectData(
+                    [5, 4, 3],
+                    true,
+                    [2, 2, 1],
+                    new extraEffects.NumberRange(20, 30),
+                    new extraEffects.NumberRange(20, 40),
+                    new extraEffects.NumberRange(150, 250),
+                    0, 5,
+                    new extraEffects.NumberRange(80, 120),
+                    0, 0, null
+                )
+
+            // ================= COMBAT =================
+            case Effects.HitSpark:
+                return extraEffects.createCustomSpreadEffectData(
+                    [7, 6, 5],
+                    true,
+                    [1, 2],
+                    new extraEffects.NumberRange(20, 40),
+                    new extraEffects.NumberRange(30, 60),
+                    new extraEffects.NumberRange(80, 150),
+                    0, 0,
+                    new extraEffects.NumberRange(80, 140),
+                    0, 0, null
+                )
+
+            case Effects.HeavyHit:
+                return extraEffects.createCustomSpreadEffectData(
+                    [7, 6, 2],
+                    false,
+                    [2, 3, 4],
+                    new extraEffects.NumberRange(40, 70),
+                    new extraEffects.NumberRange(60, 100),
+                    new extraEffects.NumberRange(150, 250),
+                    0, -10,
+                    new extraEffects.NumberRange(120, 180),
+                    0, 0, null
+                )
+
+            case Effects.Explosion:
+                return extraEffects.createCustomSpreadEffectData(
+                    [2, 4, 7, 5],
+                    false,
+                    [2, 4, 6],
+                    new extraEffects.NumberRange(60, 100),
+                    new extraEffects.NumberRange(80, 150),
+                    new extraEffects.NumberRange(200, 400),
+                    0, 0,
+                    new extraEffects.NumberRange(150, 220),
+                    20, 0, 100
+                )
+
+            case Effects.CriticalHit:
+                return extraEffects.createCustomSpreadEffectData(
+                    [7, 7, 6, 5],
+                    true,
+                    [2, 3, 5],
+                    new extraEffects.NumberRange(50, 80),
+                    new extraEffects.NumberRange(80, 120),
+                    new extraEffects.NumberRange(200, 300),
+                    0, -5,
+                    new extraEffects.NumberRange(150, 220),
+                    0, 0, 40
+                )
+
+            case Effects.EnemyDeath:
+                return extraEffects.createCustomSpreadEffectData(
+                    [6, 5, 3, 1],
+                    false,
+                    [2, 3, 4],
+                    new extraEffects.NumberRange(60, 100),
+                    new extraEffects.NumberRange(100, 160),
+                    new extraEffects.NumberRange(250, 400),
+                    0, -10,
+                    new extraEffects.NumberRange(180, 260),
+                    0, 0, 80
+                )
+
+            // ================= MOVEMENT =================
+            case Effects.JumpBurst:
+                return extraEffects.createCustomSpreadEffectData(
+                    [3, 2, 1],
+                    true,
+                    [1, 1, 2],
+                    new extraEffects.NumberRange(10, 25),
+                    new extraEffects.NumberRange(30, 60),
+                    new extraEffects.NumberRange(120, 180),
+                    0, -20,
+                    new extraEffects.NumberRange(60, 120),
+                    -5, 0, null
+                )
+
+            case Effects.LandImpact:
+                return extraEffects.createCustomSpreadEffectData(
+                    [5, 4, 3],
+                    false,
+                    [2, 3],
+                    new extraEffects.NumberRange(30, 50),
+                    new extraEffects.NumberRange(40, 80),
+                    new extraEffects.NumberRange(120, 200),
+                    0, 10,
+                    new extraEffects.NumberRange(80, 140),
+                    10, 0, null
+                )
+
+            case Effects.DashTrail:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 2, 3],
+                    true,
+                    [1, 1, 1],
+                    new extraEffects.NumberRange(5, 15),
+                    new extraEffects.NumberRange(10, 30),
+                    new extraEffects.NumberRange(60, 120),
+                    0, 0,
+                    new extraEffects.NumberRange(30, 80),
+                    0, 0, null
+                )
+
+            case Effects.WallImpact:
+                return extraEffects.createCustomSpreadEffectData(
+                    [4, 3, 2],
+                    false,
+                    [2, 3],
+                    new extraEffects.NumberRange(40, 70),
+                    new extraEffects.NumberRange(60, 100),
+                    new extraEffects.NumberRange(150, 250),
+                    0, 0,
+                    new extraEffects.NumberRange(120, 180),
+                    10, 0, null
+                )
+
+            // ================= POWER / MAGIC =================
+            case Effects.ChargeGlow:
+                return extraEffects.createCustomSpreadEffectData(
+                    [3, 4, 5],
+                    true,
+                    [1, 2, 3],
+                    new extraEffects.NumberRange(20, 40),
+                    new extraEffects.NumberRange(50, 100),
+                    new extraEffects.NumberRange(150, 250),
+                    0, 0,
+                    new extraEffects.NumberRange(200, 300),
+                    0, 0, null
+                )
+
+            case Effects.PowerUp:
+                return extraEffects.createCustomSpreadEffectData(
+                    [3, 5, 7],
+                    true,
+                    [2, 3, 4],
+                    new extraEffects.NumberRange(40, 80),
+                    new extraEffects.NumberRange(80, 140),
+                    new extraEffects.NumberRange(200, 350),
+                    0, -15,
+                    new extraEffects.NumberRange(180, 260),
+                    0, 0, 60
+                )
+
+            case Effects.LevelUpBurst:
+                return extraEffects.createCustomSpreadEffectData(
+                    [2, 4, 6, 7],
+                    false,
+                    [2, 4, 6],
+                    new extraEffects.NumberRange(60, 120),
+                    new extraEffects.NumberRange(100, 180),
+                    new extraEffects.NumberRange(250, 400),
+                    0, -20,
+                    new extraEffects.NumberRange(220, 320),
+                    0, 0, 100
+                )
+
+            case Effects.AbilityUnlock:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 3, 5, 7],
+                    true,
+                    [1, 2, 3],
+                    new extraEffects.NumberRange(50, 100),
+                    new extraEffects.NumberRange(80, 150),
+                    new extraEffects.NumberRange(200, 350),
+                    0, 0,
+                    new extraEffects.NumberRange(250, 350),
+                    0, 0, 80
+                )
+
+            // ================= ITEMS =================
+            case Effects.CoinBurst:
+                return extraEffects.createCustomSpreadEffectData(
+                    [5, 6, 7],
+                    true,
+                    [1, 2],
+                    new extraEffects.NumberRange(10, 30),
+                    new extraEffects.NumberRange(30, 60),
+                    new extraEffects.NumberRange(100, 180),
+                    0, -10,
+                    new extraEffects.NumberRange(80, 140),
+                    0, 0, null
+                )
+
+            case Effects.RareItemGlow:
+                return extraEffects.createCustomSpreadEffectData(
+                    [3, 5, 7],
+                    true,
+                    [2, 3, 4],
+                    new extraEffects.NumberRange(40, 80),
+                    new extraEffects.NumberRange(80, 140),
+                    new extraEffects.NumberRange(200, 350),
+                    0, 0,
+                    new extraEffects.NumberRange(300, 400),
+                    0, 0, 100
+                )
+
+            case Effects.KeyPickup:
+                return extraEffects.createCustomSpreadEffectData(
+                    [2, 4, 6],
+                    true,
+                    [1, 2],
+                    new extraEffects.NumberRange(30, 60),
+                    new extraEffects.NumberRange(60, 120),
+                    new extraEffects.NumberRange(150, 250),
+                    0, -5,
+                    new extraEffects.NumberRange(180, 260),
+                    0, 0, null
+                )
+
+            // ================= ENVIRONMENT =================
+            case Effects.LaserHit:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 2, 7],
+                    false,
+                    [2, 3],
+                    new extraEffects.NumberRange(30, 60),
+                    new extraEffects.NumberRange(80, 140),
+                    new extraEffects.NumberRange(150, 300),
+                    0, 0,
+                    new extraEffects.NumberRange(200, 300),
+                    0, 0, 60
+                )
+
+            case Effects.TeleportBurst:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 3, 5, 7],
+                    false,
+                    [2, 4, 6],
+                    new extraEffects.NumberRange(50, 100),
+                    new extraEffects.NumberRange(100, 180),
+                    new extraEffects.NumberRange(250, 400),
+                    0, 0,
+                    new extraEffects.NumberRange(300, 400),
+                    0, 0, 100
+                )
+
+            case Effects.DoorOpen:
+                return extraEffects.createCustomSpreadEffectData(
+                    [4, 5, 6],
+                    true,
+                    [1, 2],
+                    new extraEffects.NumberRange(20, 50),
+                    new extraEffects.NumberRange(40, 100),
+                    new extraEffects.NumberRange(120, 220),
+                    0, 0,
+                    new extraEffects.NumberRange(150, 220),
+                    0, 0, null
+                )
+
+            // ================= PUZZLE / LOGIC =================
+            case Effects.PuzzleSolve:
+                return extraEffects.createCustomSpreadEffectData(
+                    [2, 3, 5],
+                    true,
+                    [1, 2, 3],
+                    new extraEffects.NumberRange(40, 80),
+                    new extraEffects.NumberRange(80, 140),
+                    new extraEffects.NumberRange(180, 300),
+                    0, -10,
+                    new extraEffects.NumberRange(220, 300),
+                    0, 0, 80
+                )
+
+            case Effects.SwitchToggle:
+                return extraEffects.createCustomSpreadEffectData(
+                    [3, 4],
+                    true,
+                    [1, 1],
+                    new extraEffects.NumberRange(20, 40),
+                    new extraEffects.NumberRange(40, 80),
+                    new extraEffects.NumberRange(120, 200),
+                    0, 0,
+                    new extraEffects.NumberRange(120, 180),
+                    0, 0, null
+                )
+
+            case Effects.ErrorGlitch:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 1, 7, 3],
+                    false,
+                    [1, 3, 5],
+                    new extraEffects.NumberRange(50, 100),
+                    new extraEffects.NumberRange(80, 160),
+                    new extraEffects.NumberRange(200, 350),
+                    10, -10,
+                    new extraEffects.NumberRange(200, 320),
+                    0, 10, 120
+                )
+
+            case Effects.ResetFade:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 2],
+                    false,
+                    [1, 2],
+                    new extraEffects.NumberRange(60, 120),
+                    new extraEffects.NumberRange(100, 200),
+                    new extraEffects.NumberRange(250, 400),
+                    0, 0,
+                    new extraEffects.NumberRange(300, 400),
+                    0, 0, 150
+                )
+
+            // ================= SCREEN FX =================
+            case Effects.ScreenShakeLight:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1],
+                    false,
+                    [1],
+                    new extraEffects.NumberRange(10, 20),
+                    new extraEffects.NumberRange(20, 40),
+                    new extraEffects.NumberRange(80, 120),
+                    0, 0,
+                    new extraEffects.NumberRange(50, 100),
+                    2, 0, null
+                )
+
+            case Effects.ScreenShakeHeavy:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1],
+                    false,
+                    [2],
+                    new extraEffects.NumberRange(30, 60),
+                    new extraEffects.NumberRange(80, 120),
+                    new extraEffects.NumberRange(200, 300),
+                    0, 0,
+                    new extraEffects.NumberRange(120, 200),
+                    6, 0, null
+                )
+
+            case Effects.ScreenFlash:
+                return extraEffects.createCustomSpreadEffectData(
+                    [7],
+                    false,
+                    [3],
+                    new extraEffects.NumberRange(5, 10),
+                    new extraEffects.NumberRange(10, 20),
+                    new extraEffects.NumberRange(50, 100),
+                    0, 0,
+                    new extraEffects.NumberRange(30, 80),
+                    0, 0, null
+                )
+
+            case Effects.ScreenRipple:
+                return extraEffects.createCustomSpreadEffectData(
+                    [2, 3, 4],
+                    false,
+                    [2, 3],
+                    new extraEffects.NumberRange(40, 80),
+                    new extraEffects.NumberRange(80, 140),
+                    new extraEffects.NumberRange(200, 300),
+                    0, 0,
+                    new extraEffects.NumberRange(200, 300),
+                    0, 0, 80
+                )
+
+            case Effects.ScreenVignette:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 2],
+                    false,
+                    [1],
+                    new extraEffects.NumberRange(80, 140),
+                    new extraEffects.NumberRange(120, 200),
+                    new extraEffects.NumberRange(250, 400),
+                    0, 0,
+                    new extraEffects.NumberRange(300, 400),
+                    0, 0, 120
+                )
+
+            // ================= RETRO / MISC =================
+            case Effects.PixelDissolve:
+                return extraEffects.createCustomSpreadEffectData(
+                    [1, 2, 3, 7],
+                    false,
+                    [2, 3, 5],
+                    new extraEffects.NumberRange(60, 120),
+                    new extraEffects.NumberRange(100, 180),
+                    new extraEffects.NumberRange(250, 400),
+                    0, 0,
+                    new extraEffects.NumberRange(250, 350),
+                    0, 0, 100
+                )
+
+            case Effects.ScanlinePop:
+                return extraEffects.createCustomSpreadEffectData(
+                    [2, 3, 4],
+                    true,
+                    [1, 2],
+                    new extraEffects.NumberRange(30, 60),
+                    new extraEffects.NumberRange(60, 120),
+                    new extraEffects.NumberRange(150, 250),
+                    0, 0,
+                    new extraEffects.NumberRange(180, 260),
+                    0, 0, null
+                )
+        }
+
+        return extraEffects.createCustomSpreadEffectData(
+            [0],
+            true,
+            [1],
+            new extraEffects.NumberRange(10, 10),
+            new extraEffects.NumberRange(10, 10),
+            new extraEffects.NumberRange(50, 50),
+            0, 0,
+            new extraEffects.NumberRange(100, 100),
+            0, 0, 50
+        )
+    }
+    /**
+     * Play an Retro ParticleEffect
+     */
+    //% block="play effect $effect at x $x y $y"
+    //% blockId=retro_particles
+    //% subcategory="Retro Fx"
+    export function playEffect(effect: Effects, x: number, y: number) {
+        let data = createEffectPreset(effect)
+        extraEffects.createSpreadEffectAt(data, x, y)
     }
     /**
      * Plays a retro 8-bit explosion sound.
