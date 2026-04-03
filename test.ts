@@ -667,6 +667,7 @@ function quantizePitch(pitch: number, step = 50): number {
 function jitterPitch(pitch: number, amount = 15): number {
     return pitch + randint(-amount, amount)
 }
+
 let soundeffect: SoundBuffer
 Retro.screenFlash(500, 800)
 soundeffect = RetroSounds._pickRandom()
