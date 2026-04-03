@@ -83,7 +83,7 @@ namespace Retro {
             //% blockId=retro_menu
             //% weight=86
             //% group=Menu
-            //% subcategory="UI"
+            //% subcategory="UI Fx"
             //% blockSetVariable=retroMenu
             //% callbacks.shadow=lists_create_with
             //% x.defl=80 y.defl=60
@@ -138,7 +138,7 @@ namespace Retro {
             //% block="set menu $menu scroll arrows up $up down $down"
             //% blockId=retro_menu_arrows
             //% group=Menu
-            //% subcategory="UI"
+            //% subcategory="UI Fx"
             //% weight=85
             static setMenuArrows(menu: Menu, up: Image, down: Image) {
                 menu.createArrows(up, down)
@@ -230,7 +230,7 @@ namespace Retro {
             //% blockId=retro_dialog_create
             //% weight=88
             //% group=Dialog
-            //% subcategory="UI"
+            //% subcategory="UI Fx"
             //% blockSetVariable=retroDialog
             //% lines.shadow=lists_create_with
             //% x.defl=80 y.defl=60
@@ -515,7 +515,8 @@ namespace Retro {
      */
     //% block="play retro sound $sound"
     //% blockId=retro_play_sound
-    //% subcategory="Sound"
+    //% group=Sound
+    //% subcategory="Audio Fx"
     //% weight=100
     export function playRetroSound(sound: Sounds) {
 
