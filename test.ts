@@ -85,7 +85,7 @@ let ratio = 0
 let pitch = 0
 let inMenu = true
 scene.setBackgroundColor(12)
-let RetroMenu = Retro.UI.Menu.createMenu(["a", "b", "c", "d", "e", "f", "G"], [], scene.screenWidth() / 8, scene.screenHeight() / 2, 160, 50)
+let RetroMenu = Retro.UI.Menu.createMenu(["a", "b", "c", "d", "e", "f", "G"], [], scene.screenWidth() / 8, scene.screenHeight() / 2, 160, 50, "HI")
 // Define your custom arrow images
 const customUpArrow = img`
     . . . . . . 6 6 . . . . . .

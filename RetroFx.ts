@@ -17,7 +17,7 @@ namespace Retro {
             private scrollOffset: number = 0
             static openMenus: Menu[] = []
 
-            constructor(options: string[], callbacks: (() => void)[], x: number, y: number, dimensionX: number, dimensionY: number) {
+            constructor(options: string[], callbacks: (() => void)[], x: number, y: number, dimensionX: number, dimensionY: number, title: string) {
                 // Create miniMenu items
                 let items: miniMenu.MenuItem[] = []
                 for (let value of options) items.push(miniMenu.createMenuItem(value))
@@ -25,7 +25,7 @@ namespace Retro {
                 // Create the miniMenu
                 this.RetroMenu = miniMenu.createMenuFromArray(items)
                 this.RetroMenu.setPosition(x, y)
-                miniMenu.setTitle(this.RetroMenu, "Retro Menu")
+                miniMenu.setTitle(this.RetroMenu, title)
                 miniMenu.setDimensions(this.RetroMenu, dimensionX, dimensionY)
                 // Register button callback
                 miniMenu.onButtonPressed(this.RetroMenu, miniMenu.Button.A, (selection, index) => {
@@ -88,8 +88,8 @@ namespace Retro {
             //% callbacks.shadow=lists_create_with
             //% x.defl=80 y.defl=60
             //% dimensionX.defl=80 dimensionY.defl=60
-            static createMenu(options: string[], callbacks: (() => void)[], x: number, y: number, dimensionX: number, dimensionY: number) {
-                return new Menu(options, callbacks, x, y, dimensionX, dimensionY)
+            static createMenu(options: string[], callbacks: (() => void)[], x: number, y: number, dimensionX: number, dimensionY: number, title: string) {
+                return new Menu(options, callbacks, x, y, dimensionX, dimensionY, title)
             }
             
             static isAnyMenuOpen(): boolean {
@@ -320,6 +320,7 @@ namespace Retro {
         //% block="npc chirp"
         NPCChirp
     }
+
     export enum SoundCombos {
 
         //% block="level up combo"
@@ -333,6 +334,131 @@ namespace Retro {
 
         //% block="puzzle solved combo"
         PuzzleSolved
+    }
+
+    export enum Effects {
+
+        // UI / Menu
+        //% block="menu select"
+        MenuSelect,
+
+        //% block="menu move"
+        MenuMove,
+
+        //% block="menu open"
+        MenuOpen,
+
+        //% block="menu close"
+        MenuClose,
+
+
+        // Combat / Action
+        //% block="hit spark"
+        HitSpark,
+
+        //% block="heavy hit impact"
+        HeavyHit,
+
+        //% block="critical hit burst"
+        CriticalHit,
+
+        //% block="enemy death burst"
+        EnemyDeath,
+
+
+        // Movement
+        //% block="jump burst"
+        JumpBurst,
+
+        //% block="dash trail"
+        DashTrail,
+
+        //% block="land impact"
+        LandImpact,
+
+        //% block="wall impact"
+        WallImpact,
+
+
+        // Power / Magic
+        //% block="charge glow"
+        ChargeGlow,
+
+        //% block="power up burst"
+        PowerUp,
+
+        //% block="level up burst"
+        LevelUpBurst,
+
+        //% block="ability unlock flash"
+        AbilityUnlock,
+
+
+        // Items
+        //% block="coin burst"
+        CoinBurst,
+
+        //% block="rare item glow"
+        RareItemGlow,
+
+        //% block="key pickup burst"
+        KeyPickup,
+
+
+        // Environment
+        //% block="explosion burst"
+        Explosion,
+
+        //% block="laser hit spark"
+        LaserHit,
+
+        //% block="teleport burst"
+        TeleportBurst,
+
+        //% block="door open effect"
+        DoorOpen,
+
+
+        // Puzzle / Logic
+        //% block="puzzle solve burst"
+        PuzzleSolve,
+
+        //% block="switch toggle click"
+        SwitchToggle,
+
+        //% block="error glitch"
+        ErrorGlitch,
+
+        //% block="reset fade"
+        ResetFade,
+
+
+        // Screen FX
+        //% block="light screen shake"
+        ScreenShakeLight,
+
+        //% block="heavy screen shake"
+        ScreenShakeHeavy,
+
+        //% block="screen flash"
+        ScreenFlash,
+
+        //% block="screen ripple"
+        ScreenRipple,
+
+        //% block="screen vignette"
+        ScreenVignette,
+
+
+        // Retro / Glitch
+        //% block="glitch burst"
+        GlitchBurst,
+
+        //% block="pixel dissolve"
+        PixelDissolve,
+
+        //% block="scanline pop"
+        ScanlinePop
     }
     // =====================
     // Retro Sound Table
