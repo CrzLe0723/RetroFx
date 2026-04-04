@@ -11,7 +11,7 @@ Adds custom scroll arrows to a Retro menu.
 
 ## Example
 
-```blocks
+```sig
 Retro.UI.Menu.setMenuArrows(menu, img`
     . . 1 . .
     . 1 1 1 .

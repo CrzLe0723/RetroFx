@@ -88,6 +88,7 @@ namespace Retro {
             //% callbacks.shadow=lists_create_with
             //% x.defl=80 y.defl=60
             //% dimensionX.defl=80 dimensionY.defl=60
+            //% help=Retro Fx+ Extension/docs/create-menu
             static createMenu(options: string[], callbacks: (() => void)[], x: number, y: number, dimensionX: number, dimensionY: number, title: string) {
                 return new Menu(options, callbacks, x, y, dimensionX, dimensionY, title)
             }
@@ -863,7 +864,8 @@ namespace Retro {
     */
     //% block="camera punch for $sprite intensity $intensity duration $duration ms"
     //% blockId=retro_camera_punch
-    //% subcategory="Effects"
+    //% group=Effect
+    //% subcategory="Visiual Fx"
     //% intensity.defl=4
     //% duration.defl=60
     //% sprite.shadow=variables_get
@@ -883,7 +885,8 @@ namespace Retro {
      */
     //% block="play random retro sound"
     //% blockId=retro_random_sound
-    //% subcategory="Sound"
+    //% group=Audio
+    //% subcategory="Audio Fx"
     //% weight=95
     export function playRandomSound() {
 
@@ -896,8 +899,10 @@ namespace Retro {
     */
     //% block="coyote jump force $force"
     //% blockId=retro_coyote_jump
-    //% subcategory="Movement"
+    //% group=Movement
+    //% subcategory="Juice Fx"
     //% force.defl=50
+    //% sprite.shadow=variables_get sprite.defl=Player
     let canCoyoteJump = false
     export function coyoteJump(sprite: Sprite, force: number) {
         game.onUpdate(function () {
@@ -909,11 +914,22 @@ namespace Retro {
         }
     }
     /**
+     * Float control for a sprite
+     */
+    //% group=Movement
+    //% subcategory="Juice Fx"
+    //% block="float movement %sprite factor %value"
+    //% blockId=retro_float_control
+    //% sprite.shadow=variables_get sprite.defl=Player
+    //% value.defl=200
+    export function floatControl(sprite: Sprite, value: number) { }
+    /**
     * Input buffer for queued actions
     */
     //% block="input buffer handler %handler buffer $bufferTime ms"
     //% blockId=retro_input_buffer
-    //% subcategory="Input"
+    //% group=Input
+    //% subcategory="System Fx"
     //% bufferTime.defl=200
     let inputQueue: (() => void)[] = []
     export function inputBuffer(handler: () => void, bufferTime: number) {
@@ -926,7 +942,8 @@ namespace Retro {
     */
     //% block="screen vignette intensity $intensity"
     //% blockId=retro_screen_vignette
-    //% subcategory="Effects"
+    //% group=
+    //% subcategory="Camera Fx"
     //% intensity.defl=80
     export function screenVignette(intensity: number) {
         let rect = image.create(screen.width, screen.height)
@@ -934,6 +951,12 @@ namespace Retro {
         rect.drawRect(0, 0, screen.width, screen.height, intensity)
         scene.setBackgroundImage(rect)
     }
+    //% block="set speed to $speed"
+    //% group="HI"
+    //% speed.shadow=math_number
+    //% speed.defl=50
+    //% speed.duplicateShadowOnDrag=true
+    export function setSpeed(speed: number) { }
     /**
     * Pixel dissolve effect for sprite
     */

@@ -13,7 +13,7 @@ Creates a Retro styled menu with selectable options.
 
 ## Example
 
-```blocks
+```sig
 let menu = Retro.UI.Menu.createMenu(
     ["Start", "Options", "Quit"],
     [() => {}, () => {}, () => {}],
