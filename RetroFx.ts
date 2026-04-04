@@ -15,7 +15,7 @@ namespace SpriteKind {
     //% isKind
     export const UI = SpriteKind.create()
 }
-//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','Movement','Platformer','AI','Juice','UI','Game','Input','Utility', 'Dialog', 'Menu']
+//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','E','Movement','Platformer','AI','Juice','UI','Game','Input','Utility', 'Dialog', 'Menu']
 namespace Retro {
     
     export namespace UI {
@@ -879,7 +879,7 @@ namespace Retro {
     */
     //% block="camera punch for $sprite intensity $intensity duration $duration ms"
     //% blockId=retro_camera_punch
-    //% group=Effects
+    //% group=E
     //% subcategory="Visiual Fx"
     //% intensity.defl=4
     //% duration.defl=60
