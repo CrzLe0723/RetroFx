@@ -554,7 +554,8 @@ namespace Retro {
      */
     //% block="quantize pitch $pitch step $step"
     //% blockId=retro_quantize_pitch
-    //% subcategory="Utility"
+    //% group=Utility
+    //% subcategory="System Fx"
     //% weight=40
     //% step.defl=50
     //% pitch.shadow=math_number
@@ -878,7 +879,7 @@ namespace Retro {
     */
     //% block="camera punch for $sprite intensity $intensity duration $duration ms"
     //% blockId=retro_camera_punch
-    //% group=Effect
+    //% group=Effects
     //% subcategory="Visiual Fx"
     //% intensity.defl=4
     //% duration.defl=60
@@ -914,7 +915,7 @@ namespace Retro {
     //% block="coyote jump force $force"
     //% blockId=retro_coyote_jump
     //% group=Movement
-    //% subcategory="Juice Fx"
+    //% subcategory="Character Fx"
     //% force.defl=50
     //% sprite.shadow=variables_get sprite.defl=Player
     let canCoyoteJump = false
@@ -2187,7 +2188,8 @@ namespace Retro {
     */
     //% block="jitter pitch $pitch amount $amount"
     //% blockId=retro_jitter_pitch
-    //% subcategory="Utility"
+    //% group=Utility
+    //% subcategory="System Fx"
     //% weight=39
     //% amount.defl=15
     export function jitterPitch(pitch: number, amount: number): number {
