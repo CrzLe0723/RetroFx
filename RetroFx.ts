@@ -88,10 +88,11 @@ namespace Retro {
             //% callbacks.shadow=lists_create_with
             //% x.defl=80 y.defl=60
             //% dimensionX.defl=80 dimensionY.defl=60
-            //% help=retrofx/docs/create-menu
+            //% help=RetroFx/docs/create-menu
             static createMenu(options: string[], callbacks: (() => void)[], x: number, y: number, dimensionX: number, dimensionY: number, title: string) {
                 return new Menu(options, callbacks, x, y, dimensionX, dimensionY, title)
             }
+            
             
             static isAnyMenuOpen(): boolean {
                 return Menu.openMenus.length > 0
