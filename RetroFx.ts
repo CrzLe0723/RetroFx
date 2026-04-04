@@ -1,3 +1,16 @@
+/**
+ * ✨ Visual FX = "what happens in the world"
+    📷 Camera FX = "how the player sees it"
+    🧃 Juice FX = "how good it feels"
+    🔊 Audio FX = "what it sounds like"
+    🧍 Character FX = "state of entities"
+    ⚔️ Combat FX = "attack interactions"
+    🌍 World FX = "environment simulation"
+    🖥️ UI FX = "menus/HUD feedback"
+    🧠 System FX = "engine logic helpers"
+ */
+
+
 namespace SpriteKind {
     //% isKind
     export const UI = SpriteKind.create()
@@ -943,8 +956,8 @@ namespace Retro {
     */
     //% block="screen vignette intensity $intensity"
     //% blockId=retro_screen_vignette
-    //% group=
-    //% subcategory="Camera Fx"
+    //% group=Camera Fx
+    //% subcategory="Screen Fx"
     //% intensity.defl=80
     export function screenVignette(intensity: number) {
         let rect = image.create(screen.width, screen.height)
@@ -953,7 +966,8 @@ namespace Retro {
         scene.setBackgroundImage(rect)
     }
     //% block="set speed to $speed"
-    //% group="HI"
+    //% group=Movement
+    //% subcategory="Character Fx"
     //% speed.shadow=math_number
     //% speed.defl=50
     //% speed.duplicateShadowOnDrag=true
@@ -963,7 +977,8 @@ namespace Retro {
     */
     //% block="pixel dissolve $sprite duration $duration ms"
     //% blockId=retro_pixel_dissolve
-    //% subcategory="Effects"
+    //% group=Effects
+    //% subcategory="Combat Fx"
     //% duration.defl=400
     //% sprite.shadow=variables_get
     //% sprite.defl=Entity
@@ -983,7 +998,8 @@ namespace Retro {
     */
     //% block="play retro sound $sound volume $volume pitch $pitch"
     //% blockId=retro_custom_sound
-    //% subcategory="Sound"
+    //% group=Sound
+    //% subcategory="Audio Fx"
     //% weight=94
     //% volume.defl=120
     //% pitch.defl=600
@@ -1001,13 +1017,13 @@ namespace Retro {
     }
 
     
-    
     /**
     * Loop a sound several times
     */
     //% block="loop retro sound $sound"
     //% blockId=retro_loop_sound
-    //% subcategory="Utility"
+    //% group=Utility
+    //% subcategory="System Fx"
     //% weight=80
     export function loopSound(sound: Sounds) {
         RetroSounds[sound].loop()
@@ -1019,7 +1035,8 @@ namespace Retro {
     */
     //% block="stop retro sounds"
     //% blockId=retro_stop_sound
-    //% subcategory="Utility"
+    //% group=Utility
+    //% subcategory="System Fx"
     //% weight=79
     export function stopSounds() {
         music.stopAllSounds()
@@ -1031,7 +1048,8 @@ namespace Retro {
     */
     //% block="play sound sequence $first then $second"
     //% blockId=retro_sequence_sound
-    //% subcategory="Utility"
+    //% group=Utility
+    //% subcategory="System Fx"
     //% weight=78
     export function sequenceSounds(first: Sounds, second: Sounds) {
         RetroSounds[first].playUntilDone()
@@ -1043,7 +1061,8 @@ namespace Retro {
     */
     //% block="reactive sound value $value min $min max $max"
     //% blockId=retro_reactive_sound
-    //% subcategory="Dynamic"
+    //% group=Dynamic
+    //% subcategory="System Fx"
     //% weight=70
     //% value.defl=50
     //% min.defl=0
@@ -1066,7 +1085,8 @@ namespace Retro {
     */
     //% block="set retro sound pause mode $state"
     //% blockId=retro_pause_toggle
-    //% subcategory="Utility"
+    //% group=Utility
+    //% subcategory="System Fx"
     //% weight=60
     export function setPauseMode(state: boolean) {
         ifPause = state
@@ -1076,6 +1096,9 @@ namespace Retro {
      * @param volume the volume in which you want for all sound effects
     */
     //% block="set global retro volume $volume"
+    //% group=Sound
+    //% subcategory="Audio Fx"
+    //% blockId=retro_global_volume
     //% volume.min=0 volume.max=255
     //% weight=90
     export function setGlobalVolume(volume: number) {
@@ -1086,7 +1109,8 @@ namespace Retro {
     */
     //% block="play retro combo $combo"
     //% blockId=retro_combo_sound
-    //% subcategory="Combos"
+    //% group=Combo
+    //% subcategory="Audio Fx"
     //% weight=85
     export function playCombo(combo: SoundCombos) {
 
@@ -1605,7 +1629,8 @@ namespace Retro {
      */
     //% block="play 8-bit explosion power %power||pitch %pitch duration %duration"
     //% blockId=retro_explosion
-    //% subcategory="Retro FX"
+    //% group=Special Audio
+    //% subcategory="Audio Fx"
     //% weight=100
     //% power.defl=5
     //% pitch.defl=200
