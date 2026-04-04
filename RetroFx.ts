@@ -1843,16 +1843,31 @@ namespace Retro {
      * Shake the screen for impact effects
      */
     //% block="screen shake strength $strength duration $time ms"
+
+    // Spanish
+    //% block.loc.es="sacudir pantalla intensidad $strength duración $time ms"
+
+    // French
+    //% block.loc.fr="secouer l'écran intensité $strength durée $time ms"
+
+    // Chinese (Simplified)
+    //% block.loc.zh="屏幕震动 强度 $strength 持续 $time ms"
+
     //% blockId=retro_screen_shake
-    //% subcategory="Effects"
+    //% group="Effects"
+    //% subcategory="Screen Fx"
     //% weight=90
+
     //% strength.defl=4
-    //% strength.min=0 strength.max=8
+    //% strength.min=0
+    //% strength.max=8
+
     //% time.defl=200
+    //% time.min=0
+    //% time.step=10
+
     export function screenShake(strength: number, time: number) {
-
         scene.cameraShake(strength, time)
-
     }
     /**
      * Parallax camera for background layer
