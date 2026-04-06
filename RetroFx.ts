@@ -15,7 +15,7 @@ namespace SpriteKind {
     //% isKind
     export const UI = SpriteKind.create()
 }
-//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','Movement','Platformer','AI','Juice','UI','Game','Input','Utility','Dialog','Menu','Combat','Time','Hit Fx','Text']
+//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','Movement','Platformer','AI','Juice','UI','Game','Input','Utility','Dialog','Menu','Combat','Time','Hit Fx','Text','Game Flow']
 namespace Retro {
     
     export namespace UI {
@@ -901,7 +901,7 @@ namespace Retro {
      */
     //% block="play random retro sound"
     //% blockId=retro_random_sound
-    //% group=Audio
+    //% group=Sound
     //% subcategory="Audio Fx"
     //% weight=95
     export function playRandomSound() {
@@ -931,12 +931,13 @@ namespace Retro {
      * Float control for a sprite
      */
     //% group=Movement
-    //% subcategory="Juice Fx"
+    //% subcategory="Character Fx"
     //% block="float movement %sprite factor %value"
     //% blockId=retro_float_control
     //% sprite.shadow=variables_get sprite.defl=Player
     //% value.defl=200
     export function floatControl(sprite: Sprite, value: number) { }
+    let inputQueue: (() => void)[] = []
     /**
     * Input buffer for queued actions
     */
@@ -945,7 +946,6 @@ namespace Retro {
     //% group=Input
     //% subcategory="System Fx"
     //% bufferTime.defl=200
-    let inputQueue: (() => void)[] = []
     export function inputBuffer(handler: () => void, bufferTime: number) {
         inputQueue.push(handler)
         pause(bufferTime)
@@ -2159,7 +2159,8 @@ namespace Retro {
     */
     //% block="countdown $seconds seconds"
     //% blockId=retro_countdown
-    //% subcategory="Game"
+    //% group=Game Flow
+    //% subcategory="System Fx"
     //% weight=79
     //% seconds.defl=10
     export function countdown(seconds: number) {
@@ -2168,16 +2169,17 @@ namespace Retro {
 
     }
     /**
-     * Detect button hold
+     * Detect button hold 
      */
-    //% block="on A button held $time ms"
+    //% block="on button $button held $time ms"
     //% blockId=retro_button_hold
-    //% subcategory="Input"
+    //% group=Input
+    //% subcategory="System Fx"
     //% weight=75
     //% time.defl=500
-    export function onButtonHeld(time: number, handler: () => void) {
+    export function onButtonHeld(button: controller.Button, time: number, handler: () => void) {
 
-        controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+        button.onEvent(ControllerButtonEvent.Pressed, function () {
 
             pause(time)
 
