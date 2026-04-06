@@ -857,7 +857,8 @@ namespace Retro {
      */
     //% block="camera follow $sprite lag $lag"
     //% blockId=retro_camera_follow_lag
-    //% subcategory="Effects"
+    //% group=Camera Fx
+    //% subcategory="Screen Fx"
     //% weight=84
     //% lag.defl=4
     //% sprite.shadow=variables_get
@@ -879,8 +880,8 @@ namespace Retro {
     */
     //% block="camera punch for $sprite intensity $intensity duration $duration ms"
     //% blockId=retro_camera_punch
-    //% group=E
-    //% subcategory="Visiual Fx"
+    //% group=Effects
+    //% subcategory="Screen Fx"
     //% intensity.defl=4
     //% duration.defl=60
     //% sprite.shadow=variables_get
@@ -904,10 +905,8 @@ namespace Retro {
     //% subcategory="Audio Fx"
     //% weight=95
     export function playRandomSound() {
-
         let s = RetroSounds[randint(0, RetroSounds.length - 1)]
         s.play()
-
     }
     /**
     * Coyote jump (jump shortly after leaving platform)
