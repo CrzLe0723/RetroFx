@@ -15,7 +15,7 @@ namespace SpriteKind {
     //% isKind
     export const UI = SpriteKind.create()
 }
-//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','Movement','Platformer','AI','Juice','UI','Game','Input','Utility','Dialog','Menu','Combat','Time','Hit Fx','Text','Game Flow','Combo System']
+//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','Movement','Platformer','AI','Juice','UI','Game','Input','Utility','Dialog','Menu','Combat','Time','Hit Fx','Text','Game Flow','Combo System','Effect Spawning']
 namespace Retro {
     
     export namespace UI {
@@ -1612,12 +1612,13 @@ namespace Retro {
         )
     }
     /**
-     * Play an Retro ParticleEffect
+     * Spawn a Retro ParticleEffect
      */
-    //% block="play effect $effect at x $x y $y"
+    //% block="spawn effect $effect at x $x y $y"
     //% blockId=retro_particles
-    //% subcategory="Retro Fx"
-    export function playEffect(effect: Effects, x: number, y: number) {
+    //% group=Effect Spawning
+    //% subcategory="World Fx"
+    export function spawnEffect(effect: Effects, x: number, y: number) {
         let data = createEffectPreset(effect)
         extraEffects.createSpreadEffectAt(data, x, y)
     }
@@ -1656,7 +1657,8 @@ namespace Retro {
     */
     //% block="add trail to $sprite image $img interval $interval ms"
     //% blockId=retro_trail_effect
-    //% subcategory="Retro FX"
+    //% group=Effect Spawning
+    //% subcategory="World Fx"
     //% weight=96
     //% interval.defl=50
     export function trailEffect(sprite: Sprite, img: Image, interval: number) {
@@ -1677,7 +1679,8 @@ namespace Retro {
     */
     //% block="screen ripple strength $strength duration $duration ms"
     //% blockId=retro_screen_ripple
-    //% subcategory="Retro FX"
+    //% group=Effects
+    //% subcategory="Screen Fx"
     //% weight=99
     //% strength.defl=3
     //% duration.defl=200
@@ -1699,7 +1702,8 @@ namespace Retro {
     */
     //% block="screen flash to white for $duration,pause for $pauseTime"
     //% blockId=retro_screen_flash
-    //% subcategory="Retro FX"
+    //% group=Effect
+    //% subcategory="Screen Fx"
     //% weight=100
     //% duration.defl=120
     export function screenFlash(pauseTime: number, duration: number) {
@@ -1719,7 +1723,8 @@ namespace Retro {
     */
     //% block="play laser intensity %intensity||start pitch %startPitch end pitch %endPitch"
     //% blockId=retro_laser
-    //% subcategory="Retro FX"
+    //% group=Special
+    //% subcategory="Audio Fx"
     //% weight=99
     //% intensity.defl=4
     //% startPitch.defl=1200
@@ -1745,16 +1750,18 @@ namespace Retro {
     * Plays a retro coin cascade sound.
     * @param coins number of coins
     * @param startPitch starting pitch
+    * @param pauseTime await time after every "ping"
     */
-    //% block="play coin cascade coins %coins||start pitch %startPitch"
+    //% block="play coin cascade coins %coins||start pitch %startPitch | pausefor"
     //% blockId=retro_coin_cascade
-    //% subcategory="Retro FX"
+    //% group=Special
+    //% subcategory="Audio Fx"
     //% weight=98
     //% coins.defl=5
     //% startPitch.defl=800
     //% startPitch.shadow="math_number"
-    //% expandableArgumentMode="toggle"
-    export function coinCascade(coins: number, startPitch?: number) {
+    //% expandableArgumentMode="enabled"
+    export function coinCascade(coins: number, startPitch?: number, pauseTime?: number) {
 
         let pitch = startPitch || 800
 
@@ -1767,11 +1774,13 @@ namespace Retro {
                 pitch + i * 120
             ).play()
 
-            pause(40)
+            pause(pauseTime || 40)
 
         }
 
     }
+    
+
     /**
      * Plays a retro glitch sound effect.
      * @param intensity glitch intensity
