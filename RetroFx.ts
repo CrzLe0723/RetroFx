@@ -15,7 +15,7 @@ namespace SpriteKind {
     //% isKind
     export const UI = SpriteKind.create()
 }
-//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','E','Movement','Platformer','AI','Juice','UI','Game','Input','Utility', 'Dialog', 'Menu', 'Combat']
+//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','E','Movement','Platformer','AI','Juice','UI','Game','Input','Utility', 'Dialog', 'Menu', 'Combat', 'Time', 'Hit Fx']
 namespace Retro {
     
     export namespace UI {
@@ -2017,7 +2017,8 @@ namespace Retro {
      */
     //% block="freeze frame $time ms"
     //% blockId=retro_freeze_frame
-    //% subcategory="Effects"
+    //% group=Time
+    //% subcategory="System Fx"
     //% weight=88
     //% time.defl=60
     export function freezeFrame(time: number) {
@@ -2125,7 +2126,7 @@ namespace Retro {
         sprite.vy += vy
     }
     /**
-     * Impact sparks effect
+     * Impact sparks effect to show damage taken
      * @param x position X
      * @param y position Y 
      * @param count amount of times to enable the effect
@@ -2135,7 +2136,8 @@ namespace Retro {
      */
     //% block="impact sparks x $x y $y count $count for $t || amount of particles $particlesPerSecond | diamter $d"
     //% blockId=retro_impact_sparks
-    //% subcategory="Effects"
+    //% group=Hit Fx
+    //% subcategory="Combat Fx"
     //% count.defl=6
     //% expandableArgumentMode="enabled"
     //% t.shadow=timePicker
@@ -2187,11 +2189,12 @@ namespace Retro {
 
     }
     /**
-     * Retro hit impact
+     * Shake the screen to show hit impact
      */
     //% block="retro hit impact strength $shake freeze $freeze"
     //% blockId=retro_hit_impact
-    //% subcategory="Effects"
+    //% group=Hit Fx
+    //% subcategory="Combat Fx"
     //% weight=95
     export function retroHitImpact(shake: number, freeze: number) {
 
