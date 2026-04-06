@@ -15,7 +15,7 @@ namespace SpriteKind {
     //% isKind
     export const UI = SpriteKind.create()
 }
-//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','E','Movement','Platformer','AI','Juice','UI','Game','Input','Utility', 'Dialog', 'Menu', 'Combat', 'Time', 'Hit Fx']
+//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','E','Movement','Platformer','AI','Juice','UI','Game','Input','Utility','Dialog','Menu','Combat','Time','Hit Fx','Text']
 namespace Retro {
     
     export namespace UI {
@@ -2055,8 +2055,8 @@ namespace Retro {
      */
     //% block="floating text $text at $sprite"
     //% blockId=retro_floating_text
-    //% group=Dialog
-    //% subcategory="UI"
+    //% group=Text
+    //% subcategory="UI Fx"
     //% weight=86
     export function floatingText(text: string, sprite: Sprite) {
         let t = textsprite.create(text)
@@ -2069,8 +2069,8 @@ namespace Retro {
     */
     //% block="typewriter text $text pause per letter $pausePerCharacter at x $x y $y|| destroy after $destroyAfter"
     //% blockId=retro_type_writer
-    //% group=Dialog
-    //% subcategory="UI"
+    //% group=Text
+    //% subcategory="UI Fx"
     //% expandableArgumentMode="toggle"
     //% pausePerCharacter.shadow=timePicker
     //% x.defl=80
@@ -2221,8 +2221,8 @@ namespace Retro {
      */
     //% block="retro dialog $text at x $x y $y"
     //% blockId=retro_retro_dialog
-    //% group="Dialog"
-    //% subcategory="UI"
+    //% group=Dialog
+    //% subcategory="UI Fx"
     //% x.defl=80
     //% y.defl=40
     export function retroDialog(text: string, x: number, y: number) {
