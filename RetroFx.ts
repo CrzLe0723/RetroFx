@@ -15,7 +15,7 @@ namespace SpriteKind {
     //% isKind
     export const UI = SpriteKind.create()
 }
-//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','E','Movement','Platformer','AI','Juice','UI','Game','Input','Utility', 'Dialog', 'Menu']
+//% weight=100 color=#ff9500 icon="\uf109" block="Retro Fx+" groups=['Sound','Dynamic','Variation','Retro FX','Effects','E','Movement','Platformer','AI','Juice','UI','Game','Input','Utility', 'Dialog', 'Menu', 'Combat']
 namespace Retro {
     
     export namespace UI {
@@ -1873,7 +1873,8 @@ namespace Retro {
      */
     //% block="parallax camera layer $layer factor $factor"
     //% blockId=retro_parallax_camera
-    //% subcategory="Effects"
+    //% group=Camera Fx
+    //% subcategory="Screen Fx"
     //% factor.defl=3
     //% layer.shadow=variables_get
     //% layer.defl=Layer
@@ -1890,7 +1891,8 @@ namespace Retro {
     */
     //% block="flash sprite $sprite times $times||interval $interval"
     //% blockId=retro_flash_sprite
-    //% subcategory="Effects"
+    //% group=Combat
+    //% subcategory="Character Fx"
     //% weight=89
     //% times.defl=4
     //% interval.defl=80
