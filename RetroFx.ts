@@ -1,13 +1,13 @@
 /**
- * ✨ Visual FX = "what happens in the world"
-    📷 Camera FX = "how the player sees it"
-    🧃 Juice FX = "how good it feels"
-    🔊 Audio FX = "what it sounds like"
-    🧍 Character FX = "state of entities"
-    ⚔️ Combat FX = "attack interactions"
-    🌍 World FX = "environment simulation"
-    🖥️ UI FX = "menus/HUD feedback"
-    🧠 System FX = "engine logic helpers"
+ *  Visual FX = "what happens in the world"
+    Camera FX = "how the player sees it"
+    Juice FX = "how good it feels"
+    Audio FX = "what it sounds like"
+    Character FX = "state of entities"
+    Combat FX = "attack interactions"
+    World FX = "environment simulation"
+    UI FX = "menus/HUD feedback"
+    System FX = "engine logic helpers"
  */
 
 
@@ -255,6 +255,144 @@ namespace Retro {
         }
 
     }
+    class TextEngine {
+
+        private text: string[] = []
+        private index: number = 0
+        private output: string = ""
+        private active: boolean = false
+        private finished: boolean = false
+        private speed: number = 50
+        private effect: TextFx
+
+
+        // CONSTRUCTOR (IMPORTANT FIX)
+
+        constructor(text: string, speed: number, effect: TextFx) {
+            this.start(text, speed, effect)
+        }
+
+        // still reusable internally
+        private start(text: string, speed: number, effect: TextFx) {
+            this.text = text.split("")
+            this.index = 0
+            this.output = ""
+            this.speed = speed
+            this.effect = effect
+            this.active = true
+            this.finished = false
+        }
+
+        update() {
+            if (!this.active || this.finished) return
+
+            if (this.index < this.text.length) {
+
+                let c = this.text[this.index]
+
+                switch (this.effect) {
+                    case TextFx.Typewriter:
+                        this.output += c
+                        break
+
+                    case TextFx.Glitch:
+                        this.output += (Math.percentChance(20) ? this.glitchChar() : c)
+                        break
+
+                    case TextFx.Scroll:
+                        this.output = this.output + c
+                        break
+
+                    case TextFx.Fade:
+                        this.output += c
+                        break
+                }
+
+                if (c == "!" || c == "?") {
+                    scene.cameraShake(2, 50)
+                }
+
+                music.pewPew.play()
+                this.index++
+
+            } else {
+                this.finished = true
+            }
+        }
+
+        skip() {
+            this.output = this.text.join("")
+            this.index = this.text.length
+            this.finished = true
+        }
+
+        getText(): string {
+            return this.output
+        }
+
+        isFinished(): boolean {
+            return this.finished
+        }
+
+        private glitchChar(): string {
+            const chars = "!@#$%^&*<>?/\\|"
+            return chars.charAt(Math.randomRange(0, chars.length - 1))
+        }
+    }
+
+    
+
+    
+
+
+    /**
+    * Show a retro long text 
+    * @param text the text that will be displayed
+    * @param speed how fast the text will read 
+    * @param effect the type of effect for the text
+    */
+    //% block="skip text"
+    //% blockId=retro_skip_text
+    //% group=Dialog
+    //% subcategory="UI Fx"
+    //% block="show long text $text speed $speed effect $effect"
+    export function showLongText(text: string, speed: number, effect: TextFx) {
+        engine = new TextEngine(text, speed, effect)
+    }
+    /**
+    * Skip the current dialog text
+    */
+    //% block="get text output"
+    //% blockId=retro_get_text
+    //% group=Dialog
+    //% subcategory="UI Fx"
+    //% weight=100
+    export function getText(): string {
+        return engine ? engine.getText() : ""
+    }
+    /**
+    * Skip the current dialog text
+    */
+    //% block="text finished?"
+    //% blockId=retro_text_finished?
+    //% group=Dialog
+    //% subcategory="UI Fx"
+    //% weight=100
+    export function textFinished(): boolean {
+        return engine ? engine.isFinished() : true
+    }
+
+    /**
+    * Skip the current dialog text
+    */
+    //% block="skip text"
+    //% blockId=retro_skip_text
+    //% group=Dialog
+    //% subcategory="UI Fx"
+    //% weight=100
+    export function skipText() {
+        if (engine) engine.skip()
+    }
 
     /**
      * Retro sound effects available in the library
@@ -475,9 +613,22 @@ namespace Retro {
         //% block="scanline pop"
         ScanlinePop
     }
-    // =====================
+
+    export enum TextFx {
+        //% block="Type writer"
+        Typewriter,
+        //% block="Scroll"
+        Scroll,
+        //% block="Glitch"
+        Glitch,
+        //% block="Fade"
+        Fade
+    }
+
+
+
     // Retro Sound Table
-    // =====================
+
 
     export const RetroSounds = [
         soundEffects.createSound(soundEffects.waveNumber(WaveType.Cycle32), 1000, 80, 440), // Level-Up Base
@@ -521,9 +672,10 @@ namespace Retro {
 
     export let ifPause = false
     export let inMenu: boolean = false
-    // =====================
+    let engine: TextEngine = null
+
     // Basic Sound
-    // =====================
+
 
     /**
      * Play a retro sound effect
@@ -545,9 +697,9 @@ namespace Retro {
 
     }
 
-    // =====================
+
     // Pitch Helpers
-    // =====================
+
 
     /**
      * Quantize pitch to steps
@@ -694,9 +846,9 @@ namespace Retro {
         ).play()
 
     }
-    // =====================
+
     // Variation Sound
-    // =====================
+
 
     /**
      * Play a sound with random variation
@@ -1978,16 +2130,6 @@ namespace Retro {
 
         dashEnabledSprites.push(sprite)
 
-        controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-
-            if (dashEnabledSprites.indexOf(sprite) >= 0) {
-
-                sprite.vx += speed * Math.sign(sprite.vx || 1)
-                playDash(speed)
-
-            }
-
-        })
 
     }
     /**
@@ -2122,6 +2264,7 @@ namespace Retro {
         sprite.vy = vy
 
     }
+    
     /**
      * Smart knockback based on velocity
     */
@@ -2244,4 +2387,12 @@ namespace Retro {
         t.setMaxFontHeight(8)
         t.lifespan = 2000
     }
+
+
+
+
+    //---Game Update---
+    game.onUpdateInterval(50, function () {
+        if (engine) engine.update()
+    })
 }
