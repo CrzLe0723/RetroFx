@@ -30,5 +30,5 @@ Retro.UI.Menu.setMenuArrows(null, img` `, img` `)
 ```
 
 ```package
-retro-fx=github:crzle0723/retro-fx
+retro-fx=github:CrzLe0723/RetroFx
 ```
