@@ -25,8 +25,17 @@ Retro.UI.Menu.setMenuArrows(menu, img`
 `)
 ```
 
-```blocks 
-Retro.UI.Menu.setMenuArrows(null, img` `, img` `)
+```blocks
+let menu = Retro.UI.Menu.createMenu()
+Retro.UI.Menu.setMenuArrows(menu, img`
+    . . 1 . .
+    . 1 1 1 .
+    1 1 1 1 1
+`, img`
+    1 1 1 1 1
+    . 1 1 1 .
+    . . 1 . .
+`)
 ```
 
 ```package
