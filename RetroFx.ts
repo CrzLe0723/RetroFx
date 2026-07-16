@@ -157,6 +157,7 @@ namespace Retro {
             //% subcategory="UI Fx"
             //% weight=85
             //% up.shadow="screen_image_picker" down.shadow="screen_image_picker"
+            //% menu.shadow=variables_get menu.defl=retroMenu
             static setMenuArrows(menu: Menu, up: Image, down: Image) {
                 menu.createArrows(up, down)
             }
