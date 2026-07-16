@@ -155,6 +155,7 @@ namespace Retro {
             //% group=Menu
             //% subcategory="UI Fx"
             //% weight=85
+            //% up.shadow="screen_image_picker" down.shadow="screen_image_picker"
             static setMenuArrows(menu: Menu, up: Image, down: Image) {
                 menu.createArrows(up, down)
             }
@@ -685,7 +686,7 @@ namespace Retro {
     //% group=Sound
     //% subcategory="Audio Fx"
     //% weight=100
-    export function playRetroSound(sound: Sounds) {
+    export function playRetroSound(sound: Sounds): void {
 
         let s = RetroSounds[sound]
 
