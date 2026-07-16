@@ -26,8 +26,8 @@ Retro.UI.Menu.setMenuArrows(menu, img`
 ```
 
 ```blocks
-let menu = Retro.UI.Menu.createMenu()
-Retro.UI.Menu.setMenuArrows(menu, img`
+let retroMenu = Retro.UI.Menu.createMenu([], [], 80, 60, 80, 60, "")
+Retro.UI.Menu.setMenuArrows(retroMenu, img`
     . . 1 . .
     . 1 1 1 .
     1 1 1 1 1
@@ -36,6 +36,7 @@ Retro.UI.Menu.setMenuArrows(menu, img`
     . 1 1 1 .
     . . 1 . .
 `)
+
 ```
 
 ```package
