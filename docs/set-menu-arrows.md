@@ -11,6 +11,8 @@ Adds custom scroll arrows to a Retro menu.
 
 ## Example
 
+
+
 ```sig
 Retro.UI.Menu.setMenuArrows(menu, img`
     . . 1 . .
@@ -21,3 +23,12 @@ Retro.UI.Menu.setMenuArrows(menu, img`
     . 1 1 1 .
     . . 1 . .
 `)
+```
+
+```blocks 
+Retro.UI.Menu.setMenuArrows(null, img` `, img` `)
+```
+
+```package
+retro-fx=github:crzle0723/retro-fx
+```
