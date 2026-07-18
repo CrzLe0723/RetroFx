@@ -11,8 +11,7 @@
         "sound effects": "github:klausw3/pxt-sound-effects#v1.2.0",
         "Color Fading": "github:jwunderl/pxt-color#v0.2.3",
         "arcade-fancy-text": "github:riknoll/arcade-fancy-text#v0.2.1",
-        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#v0.1.2",
-        "arcade-sound-instructions": "github:riknoll/arcade-sound-instructions#399dee51c712f25b27477f1302e99902072db623"
+        "arcade-background-scroll": "github:microsoft/arcade-background-scroll#v0.1.2"
     },
     "files": [
         "main.ts",

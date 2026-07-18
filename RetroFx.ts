@@ -630,6 +630,10 @@ namespace Retro {
     }
 
 
+
+    // Retro Sound Table
+
+
     export const RetroSounds = [
         soundEffects.createSound(soundEffects.waveNumber(WaveType.Cycle32), 1000, 80, 440), // Level-Up Base
         soundEffects.createSound(soundEffects.waveNumber(WaveType.Cycle32), 1000, 80, 100), // Wrong answer / hurt
@@ -669,9 +673,6 @@ namespace Retro {
         soundEffects.createSound(soundEffects.waveNumber(WaveType.Cycle16), 60, 100, 700), // Text box appear
         soundEffects.createSound(soundEffects.waveNumber(WaveType.Cycle32), 40, 120, 900) // NPC chirp
     ]
-
-
-    
 
     export let ifPause = false
     export let inMenu: boolean = false
@@ -2391,23 +2392,6 @@ namespace Retro {
         t.lifespan = 2000
     }
 
-
-
-    //---Helper Functions---
-    function createRetroSounds(sounds: Sounds) {
-
-        let mySound = sound.create()
-
-        switch (sounds) {
-            case Sounds.LevelUp:
-                
-                sound.addPart(mySound, 0, 262, 1024, 500)
-                break 
-            default:
-                break
-        }
-        mySound.play()
-    }
 
 
 
