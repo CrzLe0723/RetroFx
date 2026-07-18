@@ -1,7 +1,7 @@
  
 
 
-> Open this page at [https://crzle0723.github.io/retrofx/](https://crzle0723.github.io/retrofx/)
+> Open this page at [https://crzle0723.github.io/RetroFx/](https://crzle0723.github.io/RetroFx/)
 
 ## Use as Extension
 
