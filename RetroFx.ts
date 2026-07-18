@@ -2392,7 +2392,7 @@ namespace Retro {
     }
 
 
-    
+
     //---Helper Functions---
     function createRetroSounds(sounds: Sounds) {
 
@@ -2406,6 +2406,7 @@ namespace Retro {
             default:
                 break
         }
+        mySound.play()
     }
 
 
