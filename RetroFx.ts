@@ -2393,7 +2393,23 @@ namespace Retro {
     }
 
 
+    //---Helper Functions---
+    function createRetroSound(sounds: Sounds) {
 
+        let mySound = sound.create()
+
+        switch (sounds) {
+            case Sounds.LevelUp:
+
+                break
+            case Sounds.Hurt:
+
+                break
+            default:
+
+        
+        }
+    }
 
     //---Game Update---
     game.onUpdateInterval(50, function () {
