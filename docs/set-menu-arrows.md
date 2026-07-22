@@ -1,6 +1,4 @@
-```package
-retro-fx=github:CrzLe0723/RetroFx
-```
+
 # Set Menu Arrows
 
 Adds custom scroll arrows to a Retro menu.
