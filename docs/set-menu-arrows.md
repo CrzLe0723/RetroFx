@@ -5,15 +5,7 @@ retro-fx=github:CrzLe0723/RetroFx
 
 Adds custom scroll arrows to a Retro menu.
 ```sig
-Retro.UI.Menu.setMenuArrows(menu, img`
-    . . 1 . .
-    . 1 1 1 .
-    1 1 1 1 1
-`, img`
-    1 1 1 1 1
-    . 1 1 1 .
-    . . 1 . .
-`)
+Retro.UI.Menu.setMenuArrows(menu, img``, img``)
 ```
 
 ## Parameters
